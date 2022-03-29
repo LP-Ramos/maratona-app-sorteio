@@ -46,3 +46,32 @@ function fecharPopUp(){
 
 }
 btnFechar.addEventListener("click", fecharPopUp)
+
+const toggle = document.querySelector(".botaoDarkMode")
+const theme = window.localStorage.getItem("theme");
+
+/* verifica se o tema armazenado no localStorage é escuro */
+if (theme === "dark") {document.body.classList.add("dark");
+toggle.innerText = "Dark Mode ON"; document.getElementById("logo").src = "./assets/img/Logo - Made By_LP-Ramos_2.png"}
+else {toggle.innerText = "Dark Mode OFF"; document.getElementById("logo").src = "./assets/img/Logo - Made By_LP-Ramos.png"}
+
+// event listener para quando o botão de alterar o tema for clicado
+toggle.addEventListener("click", () => {
+    document.body.classList.toggle("dark");
+    if (theme === "dark") {
+      window.localStorage.setItem("theme", "light");
+    } else window.localStorage.setItem("theme", "dark");
+  });
+
+toggle.addEventListener("click", () => {
+if (toggle.innerText === "Dark Mode ON") {
+    toggle.innerText = "Dark Mode OFF";
+    } else toggle.innerText = "Dark Mode ON";
+});
+
+toggle.addEventListener("click", () => {
+    if (toggle.innerText === "Dark Mode ON") {
+        document.getElementById("logo").src = "./assets/img/Logo - Made By_LP-Ramos_2.png";
+        } else document.getElementById("logo").src = "./assets/img/Logo - Made By_LP-Ramos.png";
+    });
+    
